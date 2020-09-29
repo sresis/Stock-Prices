@@ -54,23 +54,18 @@ def best(prices):
     # add max profit to dict
     # pick the item with highest max profit
     i = 0
-    profit_dict = {}
+    all_profits = [0]
     while i < len(prices):
         max_profit = 0
         j = i + 1
         while j < len(prices):
             if prices[j] - prices[i] > max_profit:
                 max_profit = prices[j] - prices[i]
-            profit_dict[prices[i]] = max_profit
+            all_profits.append(max_profit)
             j += 1
         i += 1
 
-        final_profit = 0
-        for item in profit_dict:
-            if profit_dict[item] > final_profit:
-                final_profit = profit_dict[item]
-
-    return final_profit
+    return max(all_profits)
 
 
 
